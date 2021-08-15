@@ -7,13 +7,17 @@ using namespace std;
 
 int main()
 {
+    unsigned long interval = 1;//默认间隔时间1ms
+    cout << "Please input interval time(ms), input [Enter] to end:";
+    cin >> interval;
+
     Sleep(3000);
     POINT cursorPos;
     GetCursorPos(&cursorPos);//获取鼠标光标位置
 
     while (true)
     {
-        Sleep(1);//单位：毫秒
+        Sleep(interval);//单位：毫秒
         mouse_event(MOUSEEVENTF_LEFTDOWN, cursorPos.x, cursorPos.y, 0, 0);
         mouse_event(MOUSEEVENTF_LEFTUP, cursorPos.x, cursorPos.y, 0, 0);
 
